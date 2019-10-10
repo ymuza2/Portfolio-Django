@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #'django_admin_reset',
+    'blog.apps.BlogConfig',
     'jobs.apps.JobsConfig', #JobsConfig está en apps.py . asi agrego una app nueva (jobs) al proyecto (portfolio-project)
     'django.contrib.admin',
     'django.contrib.auth',
