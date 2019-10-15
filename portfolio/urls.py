@@ -21,5 +21,6 @@ import jobs.views   #importa las views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',jobs.views.home, name='home'),#ir a la app 'jobs',dentro ir al archivo 'views', y dentro del archivo a la funcion 'home'
+    path('',jobs.views.home, name='home'),
+    path('blog/', include('blog.urls')),#ir a la app 'jobs',dentro ir al archivo 'views', y dentro del archivo a la funcion 'home'
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
