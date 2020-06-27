@@ -44,7 +44,7 @@ font-size: 3.5rem;
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link " href="#">Instagram </a>
                     <a class="nav-item nav-link" href="#">Resume</a>
-                    <a class="nav-item nav-link" href="#">Blog</a>
+                    <a class="nav-item nav-link active" href="#">Blog</a>
 
                 </div>
             </div>
@@ -52,42 +52,25 @@ font-size: 3.5rem;
     </header>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <main role="main">
+        <div class="container">
+    <h1 class="text-center pt-3">Welcome to Yamil's blog</h1>
+    <br />
+    <br />
+    <h2>Latest Post</h2>
+    <hr />
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Hi, I'm Yamil.</h1>
-                <p class="lead text-muted">Devops/developer, whose interests range from playing guitar to the deepest misteries at the end of the universe</p>
-                <p>
-                    <a href="mailto:yamil.muza2@gmail.com" class="btn btn-primary my-2">Contact Me</a>
+     {% for blog in blogs.all %}
+     <a href=""><h3>{{blog.title}}</h3>
+         {{blog.pub_date_pretty}}
+     <br />
+     <img class="img-fluid" src="{{blog.image.url}}" height=200 width=200 />
 
-                </p>
-            </div>
-        </section>
+<br>
+    <p>{{ blog.summary }}</p>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
+     {% endfor %}
 
-                <div class="row">
-                    {% for job in jobs.all %} <!--este for se mete en la base de datos y trae todos los jobs que haya-->
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}"/>
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-
-
-
-                </div>
-            </div>
-        </div>
-
-
-
+</div>
     </main>
 
     <footer class="text-muted">
